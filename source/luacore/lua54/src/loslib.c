@@ -144,7 +144,9 @@
 */
 #if !defined(l_system) && defined(__APPLE__)	/* { */
 #include "TargetConditionals.h"
-#if TARGET_OS_IOS || TARGET_OS_WATCH || TARGET_OS_TV
+#if (defined(TARGET_OS_IOS) && TARGET_OS_IOS) \
+ || (defined(TARGET_OS_WATCH) && TARGET_OS_WATCH) \
+ || (defined(TARGET_OS_TV) && TARGET_OS_TV)
 #define l_system(cmd) ((cmd) == NULL ? 0 : -1)
 #endif
 #endif						/* } */
