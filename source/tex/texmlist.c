@@ -1136,13 +1136,12 @@ halfword tex_make_extensible(halfword fnt, halfword chr, scaled target, scaled m
                     if (overlap < initial) {
                         initial = overlap;
                     }
-                 // if (advance == 0) {
-                 //     /*tex for tfm fonts (so no need for scaling) */
-                 //     advance = tex_aux_math_x_size_scaled(fnt, tex_char_width_from_font(fnt, e->glyph), size); /* todo: combine */
-                        if (advance <= 0) {
-                            tex_formatted_error("fonts", "bad horizontal extensible character %i in font %i", chr, fnt);
-                        }
-                 // }
+                    if (advance == 0) {
+                        advance = tex_aux_math_x_size_scaled(fnt, tex_char_width_from_font(fnt, e->glyph), size); /* todo: combine */
+                    }
+                    if (advance <= 0) {
+                        tex_formatted_error("fonts", "bad horizontal extensible character %i in font %i", chr, fnt);
+                    }
                     max_natural += advance - initial;
                     overlap = tex_aux_math_x_size_scaled(fnt, e->end_overlap, size);
                 } else {
@@ -1156,13 +1155,12 @@ halfword tex_make_extensible(halfword fnt, halfword chr, scaled target, scaled m
                         if (overlap < initial) {
                             initial = overlap;
                         }
-                     // if (advance == 0) {
-                     //     /*tex for tfm fonts (so no need for scaling) */
-                     //     advance = tex_aux_math_x_size_scaled(fnt, tex_char_width_from_font(fnt, e->glyph), size); /* todo: combine */
-                            if (advance <= 0) {
-                                tex_formatted_error("fonts", "bad horizontal extensible character %i in font %i", chr, fnt);
-                            }
-                     // }
+                        if (advance == 0) {
+                            advance = tex_aux_math_x_size_scaled(fnt, tex_char_width_from_font(fnt, e->glyph), size); /* todo: combine */
+                        }
+                        if (advance <= 0) {
+                            tex_formatted_error("fonts", "bad horizontal extensible character %i in font %i", chr, fnt);
+                        }
                         max_natural += advance - initial;
                         overlap = tex_aux_math_x_size_scaled(fnt, e->end_overlap, size);
                         pieces--;
@@ -1180,12 +1178,12 @@ halfword tex_make_extensible(halfword fnt, halfword chr, scaled target, scaled m
                     if (overlap < initial) {
                         initial = overlap;
                     }
-                 // if (advance == 0) {
-                 //     advance = tex_aux_math_y_size_scaled(fnt, tex_char_total_from_font(fnt, e->glyph), size); /* todo: combine */
-                        if (advance <= 0) {
-                            tex_formatted_error("fonts", "bad vertical extensible character %i in font %i", chr, fnt);
-                        }
-                 // }
+                    if (advance == 0) {
+                        advance = tex_aux_math_y_size_scaled(fnt, tex_char_total_from_font(fnt, e->glyph), size); /* todo: combine */
+                    }
+                    if (advance <= 0) {
+                        tex_formatted_error("fonts", "bad vertical extensible character %i in font %i", chr, fnt);
+                    }
                     max_natural += advance - initial;
                     overlap = tex_aux_math_y_size_scaled(fnt, e->end_overlap, size);
                 } else {
@@ -1199,12 +1197,12 @@ halfword tex_make_extensible(halfword fnt, halfword chr, scaled target, scaled m
                         if (overlap < initial) {
                             initial = overlap;
                         }
-                     // if (advance == 0) {
-                     //     advance = tex_aux_math_y_size_scaled(fnt, tex_char_total_from_font(fnt, e->glyph), size); /* todo: combine */
-                            if (advance <= 0) {
-                                tex_formatted_error("fonts", "bad vertical extensible character %i in font %i", chr, fnt);
-                            }
-                     // }
+                        if (advance == 0) {
+                            advance = tex_aux_math_y_size_scaled(fnt, tex_char_total_from_font(fnt, e->glyph), size); /* todo: combine */
+                        }
+                        if (advance <= 0) {
+                            tex_formatted_error("fonts", "bad vertical extensible character %i in font %i", chr, fnt);
+                        }
                         max_natural += advance - initial;
                         overlap = tex_aux_math_y_size_scaled(fnt, e->end_overlap, size);
                         pieces--;
